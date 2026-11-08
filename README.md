@@ -1,11 +1,27 @@
 # 🏏 IPL Analytics & Intelligence Platform (2008–2026)
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.30+-FF4B4B.svg)](https://streamlit.io/)
-[![Plotly](https://img.shields.io/badge/Plotly-Interactive-3F4F75.svg)](https://plotly.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p align="center">
+  <img src="./assets/hero_banner.jpeg" alt="IPL Analytics Hero Banner" width="100%" style="border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+</p>
+
+<p align="center">
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+"></a>
+  <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-1.30+-FF4B4B.svg" alt="Streamlit"></a>
+  <a href="https://plotly.com/"><img src="https://img.shields.io/badge/Plotly-Interactive-3F4F75.svg" alt="Plotly"></a>
+  <a href="https://www.kaggle.com/datasets/te1234567/ipl-player-images-dataset-20082026/data"><img src="https://img.shields.io/badge/Kaggle-Player%20Images%20Dataset-20BEFF.svg?logo=kaggle&logoColor=white" alt="Kaggle Dataset"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+</p>
 
 A premier cricket data analytics, historical archiving, and machine learning intelligence platform covering all **19 seasons (2008–2026)** of the Indian Premier League.
+
+---
+
+## 🌐 Official Kaggle Dataset
+
+> 🌟 **Authored & Curated by Tejas Ingle on Kaggle:**  
+> 🔗 **[IPL Player Images Dataset (2008–2026) on Kaggle](https://www.kaggle.com/datasets/te1234567/ipl-player-images-dataset-20082026/data)**  
+> 
+> This platform is powered by the custom **IPL Player Images Dataset**, created and maintained by **Tejas Ingle**. The dataset features 420+ high-resolution, authenticated player headshots and jersey action shots organized across every franchise from 2008 to 2026. Specially curated for computer vision, sports analytics, and custom FIFA 26-style trading cards.
 
 ---
 
@@ -25,7 +41,7 @@ A premier cricket data analytics, historical archiving, and machine learning int
   - 🟡 **Rare Edition** (Established match-winners)
   - 🟣 **Epic Edition** (Tournament icons & overseas superstars)
   - 👑 **Icon Edition** (All-time legends: Kohli, Rohit, Dhoni, Bumrah, Gayle, De Villiers)
-- Curated face graphics featuring authentic franchise jerseys.
+- Curated face graphics featuring authentic franchise jerseys from the official Kaggle dataset.
 - Dynamic interactive flip cards pairing FIFA rating attributes with full career batting & bowling metrics.
 
 ### 3. 🔍 Typo-Tolerant Fuzzy Player Search
@@ -95,6 +111,7 @@ Open your browser and navigate to `http://localhost:8501`.
 ├── report_generator.py                # Automated PDF report generator
 ├── requirements.txt                   # Project Python dependencies
 ├── deccan_chargers.png                # Official 2009 Champion franchise logo
+├── assets/                            # Hero banners and documentation visuals
 ├── players/                           # Curated player photos in franchise jerseys
 ├── IMAGE /                            # Curated high-resolution wallpapers & photos
 └── .gitignore                         # Excludes large archives and cache files
