@@ -13,6 +13,8 @@ import re
 import difflib
 import json
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # ==========================================
 # 🎨 LUXURY IPL CHAMPIONSHIP DESIGN SYSTEM
 # ==========================================
@@ -1423,19 +1425,19 @@ def get_base64_image(file_path):
 
 # User's Curated High-Res Wallpapers & Photos
 LOCAL_PLAYER_IMAGES = {
-    'V Kohli': get_base64_image('/home/tejas/ipl/IMAGE /18.jpeg') or get_base64_image('/home/tejas/ipl/V_Kohli.jpg'),
-    'MS Dhoni': get_base64_image('/home/tejas/ipl/IMAGE /2026 Chennai IPL MSD WALLPAPER.jpeg') or get_base64_image('/home/tejas/ipl/MS_Dhoni.jpg'),
-    'RG Sharma': get_base64_image('/home/tejas/ipl/IMAGE /Wallpaper ❤️12000 T20 runs for Rohit Sharma.jpeg') or get_base64_image('/home/tejas/ipl/RG_Sharma.jpg'),
-    'B Kumar': get_base64_image('/home/tejas/ipl/IMAGE /Bhuvi♥️.jpeg'),
-    'HH Pandya': get_base64_image('/home/tejas/ipl/IMAGE /hardik pandya wallpaper hd Mumbai Indians.jpeg'),
-    'KL Rahul': get_base64_image('/home/tejas/ipl/IMAGE /Man of the moment KL Rahul 🙌🏻💙❤️.jpeg'),
-    'RR Pant': get_base64_image('/home/tejas/ipl/IMAGE /Rishabh Pant.jpeg'),
-    'Shubman Gill': get_base64_image('/home/tejas/ipl/IMAGE /Shubhman gill wallpaper 📍.jpeg'),
-    'V Suryavanshi': get_base64_image('/home/tejas/ipl/IMAGE /vebhav Suryavanshi.jpeg')
+    'V Kohli': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', '18.jpeg')) or get_base64_image(os.path.join(BASE_DIR, 'V_Kohli.jpg')),
+    'MS Dhoni': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', '2026 Chennai IPL MSD WALLPAPER.jpeg')) or get_base64_image(os.path.join(BASE_DIR, 'MS_Dhoni.jpg')),
+    'RG Sharma': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'Wallpaper ❤️12000 T20 runs for Rohit Sharma.jpeg')) or get_base64_image(os.path.join(BASE_DIR, 'RG_Sharma.jpg')),
+    'B Kumar': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'Bhuvi♥️.jpeg')),
+    'HH Pandya': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'hardik pandya wallpaper hd Mumbai Indians.jpeg')),
+    'KL Rahul': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'Man of the moment KL Rahul 🙌🏻💙❤️.jpeg')),
+    'RR Pant': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'Rishabh Pant.jpeg')),
+    'Shubman Gill': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'Shubhman gill wallpaper 📍.jpeg')),
+    'V Suryavanshi': get_base64_image(os.path.join(BASE_DIR, 'IMAGE ', 'vebhav Suryavanshi.jpeg'))
 }
 
 # Verified Local IPL Brand Logo
-IPL_LOGO_BASE64 = get_base64_image('/home/tejas/ipl/ipl_logo.png')
+IPL_LOGO_BASE64 = get_base64_image(os.path.join(BASE_DIR, 'ipl_logo.png'))
 
 OFFICIAL_TEAM_LOGOS = {
     "Mumbai Indians": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/330px-Mumbai_Indians_Logo.svg.png",
@@ -1447,7 +1449,7 @@ OFFICIAL_TEAM_LOGOS = {
     "Delhi Daredevils": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/2f/Delhi_Capitals.svg/330px-Delhi_Capitals.svg.png",
     "Rajasthan Royals": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg/330px-This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg.png",
     "Sunrisers Hyderabad": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/51/Sunrisers_Hyderabad_Logo.svg/330px-Sunrisers_Hyderabad_Logo.svg.png",
-    "Deccan Chargers": get_base64_image('/home/tejas/ipl/deccan_chargers.png') or "https://upload.wikimedia.org/wikipedia/en/a/a6/HyderabadDeccanChargers.png",
+    "Deccan Chargers": get_base64_image(os.path.join(BASE_DIR, 'deccan_chargers.png')) or "https://upload.wikimedia.org/wikipedia/en/a/a6/HyderabadDeccanChargers.png",
     "Gujarat Titans": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/09/Gujarat_Titans_Logo.svg/330px-Gujarat_Titans_Logo.svg.png",
     "Punjab Kings": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/d4/Punjab_Kings_Logo.svg/330px-Punjab_Kings_Logo.svg.png",
     "Kings XI Punjab": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/d4/Punjab_Kings_Logo.svg/330px-Punjab_Kings_Logo.svg.png",
@@ -2845,7 +2847,7 @@ def clean_tok(s):
     return re.sub(r'[^a-zA-Z0-9]', '', str(s)).lower()
 
 USER_PLAYER_DATASET_PATHS = {}
-players_dir = '/home/tejas/ipl/players'
+players_dir = os.path.join(BASE_DIR, 'players')
 if os.path.exists(players_dir):
     for root, dirs, files in os.walk(players_dir):
         for f in files:
@@ -2898,7 +2900,7 @@ def get_player_image_and_bio(player_name, team_name='IPL'):
         return LOCAL_PLAYER_IMAGES[player_name], ""
     clean_p = player_name.replace(' ', '_')
     for ext in ['.jpg', '.jpeg', '.png']:
-        cand = f"/home/tejas/ipl/IMAGE /{clean_p}{ext}"
+        cand = os.path.join(BASE_DIR, 'IMAGE ', f"{clean_p}{ext}")
         if os.path.exists(cand):
             b64 = get_base64_image(cand)
             if b64: return b64, ""
@@ -2952,8 +2954,8 @@ def fetch_wiki_data(query, is_player=False):
 @st.cache_data
 def load_data():
     try:
-        matches = pd.read_csv('matches.csv')
-        deliveries = pd.read_csv('deliveries.csv')
+        matches = pd.read_csv(os.path.join(BASE_DIR, 'matches.csv'))
+        deliveries = pd.read_csv(os.path.join(BASE_DIR, 'deliveries.csv'))
         
         # Normalize columns across different Kaggle/Cricsheet export versions
         if 'batter' in deliveries.columns:
@@ -4674,7 +4676,7 @@ elif page == "📸 Iconic IPL Moments":
     tab_archive, tab_gallery = st.tabs(["📜 Historical Archive (2008–2026)", "🖼️ Visual Wallpapers & Photo Gallery"])
 
     with tab_archive:
-        moments_file = '/home/tejas/ipl/ipl_iconic_moments_2008_2026.json'
+        moments_file = os.path.join(BASE_DIR, 'ipl_iconic_moments_2008_2026.json')
         archive_data = []
         if os.path.exists(moments_file):
             try:
@@ -4763,11 +4765,12 @@ elif page == "📸 Iconic IPL Moments":
                 st.markdown(card_content, unsafe_allow_html=True)
 
     with tab_gallery:
-        img_folder = "IMAGE "
+        img_folder = os.path.join(BASE_DIR, "IMAGE ")
         if not os.path.exists(img_folder):
             for candidate in ["IMAGE", "image", "Images", "images"]:
-                if os.path.exists(candidate):
-                    img_folder = candidate
+                cand_p = os.path.join(BASE_DIR, candidate)
+                if os.path.exists(cand_p):
+                    img_folder = cand_p
                     break
                     
         valid_exts = ('.png', '.jpg', '.jpeg', '.webp')
