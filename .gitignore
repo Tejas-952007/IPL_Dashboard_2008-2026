@@ -1,0 +1,24 @@
+# Large archive files (exceeds GitHub 100MB limit)
+players.zip
+*.zip
+*.tar.gz
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# Streamlit & OS cache
+.streamlit/secrets.toml
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Test cache
+.pytest_cache/
+*.bak
